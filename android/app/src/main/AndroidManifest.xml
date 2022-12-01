@@ -2,7 +2,7 @@
     package="com.dicoding.ditonton">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="Movies App"
+        android:label="Movie Pro"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
