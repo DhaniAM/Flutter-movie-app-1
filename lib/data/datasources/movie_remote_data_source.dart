@@ -4,15 +4,17 @@ import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/data/models/movie_detail_model.dart';
 import 'package:ditonton/data/models/movie_model.dart';
 import 'package:ditonton/data/models/movie_response.dart';
+import 'package:ditonton/data/models/trailer_response.dart';
 import 'package:http/http.dart' as http;
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getNowPlayingMovies();
   Future<List<MovieModel>> getPopularMovies();
   Future<List<MovieModel>> getTopRatedMovies();
-  Future<MovieDetailResponse> getMovieDetail(int id);
+  Future<MovieDetailModel> getMovieDetail(int id);
   Future<List<MovieModel>> getMovieRecommendations(int id);
   Future<List<MovieModel>> getUpcomingMovies();
+  Future<TrailerResponse> getMovieTrailer(int id);
   Future<List<MovieModel>> searchMovies(String query);
 }
 
@@ -38,14 +40,26 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     }
   }
 
-  /// Call [MovieDetailResponse] from data/models/movie_detail_model
+  /// Call [MovieDetailModel] from data/models/movie_detail_model
   @override
-  Future<MovieDetailResponse> getMovieDetail(int id) async {
+  Future<MovieDetailModel> getMovieDetail(int id) async {
     final response =
         await client.get(Uri.parse('$BASE_URL/movie/$id?$API_KEY'));
 
     if (response.statusCode == 200) {
-      return MovieDetailResponse.fromJson(json.decode(response.body));
+      return MovieDetailModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<TrailerResponse> getMovieTrailer(int id) async {
+    final response =
+        await client.get(Uri.parse('$BASE_URL/movie/$id/videos?$API_KEY'));
+
+    if (response.statusCode == 200) {
+      return TrailerResponse.fromJson(json.decode(response.body));
     } else {
       throw ServerException();
     }

@@ -18,6 +18,7 @@ import 'package:ditonton/presentation/provider/bottom_navigation_bar_provider.da
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
+import 'package:ditonton/presentation/provider/movie_trailer_notifier.dart';
 import 'package:ditonton/presentation/provider/now_playing_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/now_playing_tv_series_notifier.dart';
 import 'package:ditonton/presentation/provider/popular_movies_notifier.dart';
@@ -92,6 +93,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<WatchlistTvSeriesNotifier>(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => di.locator<MovieTrailerNotifier>(),
         ),
       ],
       child: MaterialApp(

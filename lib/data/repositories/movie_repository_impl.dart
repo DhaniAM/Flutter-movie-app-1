@@ -8,6 +8,7 @@ import 'package:ditonton/data/datasources/movie_remote_data_source.dart';
 import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/trailer.dart';
 import 'package:ditonton/domain/repositories/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
@@ -43,6 +44,18 @@ class MovieRepositoryImpl implements MovieRepository {
       final result = await remoteDataSource.getMovieDetail(id);
       // Call movie_data_model
       return Right(result.toEntity());
+    } on ServerException {
+      return Left(ServerFailure(''));
+    } on SocketException {
+      return Left(ConnectionFailure('Failed to connect to the network'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Trailer>> getMovieTrailer(int id) async {
+    try {
+      final result = await remoteDataSource.getMovieTrailer(id);
+      return Right(result.listTrailerModel[0].toEntity());
     } on ServerException {
       return Left(ServerFailure(''));
     } on SocketException {

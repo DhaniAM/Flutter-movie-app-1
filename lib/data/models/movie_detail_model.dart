@@ -2,8 +2,8 @@ import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:equatable/equatable.dart';
 
-class MovieDetailResponse extends Equatable {
-  MovieDetailResponse({
+class MovieDetailModel extends Equatable {
+  MovieDetailModel({
     required this.adult,
     required this.backdropPath,
     required this.genres,
@@ -51,9 +51,9 @@ class MovieDetailResponse extends Equatable {
   final bool video;
   final String type;
 
-  /// Convert JSON/Database to [MovieDetailResponse]
-  factory MovieDetailResponse.fromJson(Map<String, dynamic> json) =>
-      MovieDetailResponse(
+  /// Convert JSON/Database to [MovieDetailModel]
+  factory MovieDetailModel.fromJson(Map<String, dynamic> json) =>
+      MovieDetailModel(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         budget: json["budget"],
@@ -79,7 +79,7 @@ class MovieDetailResponse extends Equatable {
         type: 'movie',
       );
 
-  /// Convert from [MovieDetailResponse]/model to [MovieDetail]
+  /// Convert from [MovieDetailModel]/model to [MovieDetail]
   MovieDetail toEntity() {
     return MovieDetail(
       adult: this.adult,

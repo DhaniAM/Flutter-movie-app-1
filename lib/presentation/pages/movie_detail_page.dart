@@ -4,10 +4,13 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/trailer.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
+import 'package:ditonton/presentation/provider/movie_trailer_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieDetailPage extends StatefulWidget {
   static const ROUTE_NAME = '/movie-detail';
@@ -20,6 +23,9 @@ class MovieDetailPage extends StatefulWidget {
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
+  YoutubePlayerController youtubePlayerController =
+      YoutubePlayerController(initialVideoId: '6JnN1DmbqoU');
+
   /// Call [MovieDetailNotifier] from presentation/provider/movie_detail_notifier
   @override
   void initState() {
@@ -29,14 +35,25 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           .fetchMovieDetail(widget.id);
       Provider.of<MovieDetailNotifier>(context, listen: false)
           .loadWatchlistStatus(widget.id);
+      Provider.of<MovieTrailerNotifier>(context, listen: false)
+          .fetchMovieTrailer(widget.id)
+          .then((_) {
+        youtubePlayerController = YoutubePlayerController(
+          initialVideoId:
+              Provider.of<MovieTrailerNotifier>(context, listen: false)
+                  .trailer
+                  .keyName,
+          flags: YoutubePlayerFlags(autoPlay: false),
+        );
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<MovieDetailNotifier>(
-        builder: (context, provider, child) {
+      body: Consumer2<MovieDetailNotifier, MovieTrailerNotifier>(
+        builder: (context, provider, trailer, child) {
           if (provider.movieState == RequestState.loading) {
             return Center(
               child: CircularProgressIndicator(),
@@ -48,6 +65,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 movie,
                 provider.movieRecommendations,
                 provider.isAddedToWatchlist,
+                trailer.trailer,
+                youtubePlayerController,
               ),
             );
           } else {
@@ -63,8 +82,16 @@ class DetailContent extends StatelessWidget {
   final MovieDetail movie;
   final List<Movie> recommendations;
   final bool isAddedWatchlist;
+  final Trailer trailer;
+  final YoutubePlayerController youtubePlayerController;
 
-  DetailContent(this.movie, this.recommendations, this.isAddedWatchlist);
+  DetailContent(
+    this.movie,
+    this.recommendations,
+    this.isAddedWatchlist,
+    this.trailer,
+    this.youtubePlayerController,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -180,6 +207,16 @@ class DetailContent extends StatelessWidget {
                             ),
                             Text(
                               movie.overview,
+                            ),
+                            Text('Trailer'),
+                            YoutubePlayer(
+                              controller: youtubePlayerController,
+                              showVideoProgressIndicator: true,
+                              progressIndicatorColor: Colors.amber,
+                              progressColors: ProgressBarColors(
+                                playedColor: kBrightBlue,
+                                handleColor: kBrightBlue,
+                              ),
                             ),
                             SizedBox(height: 16),
                             Text(
