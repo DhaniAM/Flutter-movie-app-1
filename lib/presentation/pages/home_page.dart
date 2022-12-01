@@ -10,6 +10,7 @@ import 'package:ditonton/presentation/pages/popular_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/search_page.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/presentation/pages/top_rated_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/upcoming_movies_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:ditonton/presentation/provider/bottom_navigation_bar_provider.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                     const Divider(
                       color: kPrussianBlue,
                       height: 5,
-                      thickness: 0.4,
+                      thickness: 0.3,
                       indent: 15,
                       endIndent: 15,
                     ),
@@ -114,13 +115,14 @@ class _HomePageState extends State<HomePage> {
                       leading: Icon(Icons.ondemand_video),
                       title: Text('Upcoming Movies'),
                       onTap: () {
-                        Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                        Navigator.pushNamed(
+                            context, UpcomingMoviesPage.ROUTE_NAME);
                       },
                     ),
                     const Divider(
                       color: kPrussianBlue,
                       height: 5,
-                      thickness: 0.4,
+                      thickness: 0.3,
                       indent: 15,
                       endIndent: 15,
                     ),
@@ -148,17 +150,10 @@ class _HomePageState extends State<HomePage> {
                             context, PopularTvSeriesPage.ROUTE_NAME);
                       },
                     ),
-                    ListTile(
-                      leading: Icon(Icons.ondemand_video),
-                      title: Text('Upcoming Tv Series'),
-                      onTap: () {
-                        Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
-                      },
-                    ),
                     const Divider(
                       color: kPrussianBlue,
                       height: 5,
-                      thickness: 0.4,
+                      thickness: 0.3,
                       indent: 15,
                       endIndent: 15,
                     ),

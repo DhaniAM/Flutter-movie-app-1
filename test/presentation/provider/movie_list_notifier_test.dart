@@ -5,6 +5,7 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/usecases/get_now_playing_movies.dart';
 import 'package:ditonton/domain/usecases/get_popular_movies.dart';
 import 'package:ditonton/domain/usecases/get_top_rated_movies.dart';
+import 'package:ditonton/domain/usecases/get_upcoming_movies.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -16,12 +17,14 @@ import 'movie_list_notifier_test.mocks.dart';
   GetNowPlayingMovies,
   GetPopularMovies,
   GetTopRatedMovies,
+  GetUpcomingMovies,
 ])
 void main() {
   late MovieListNotifier provider;
   late MockGetNowPlayingMovies mockGetNowPlayingMovies;
   late MockGetPopularMovies mockGetPopularMovies;
   late MockGetTopRatedMovies mockGetTopRatedMovies;
+  late MockGetUpcomingMovies mockGetUpcomingMovies;
   late int listenerCallCount;
 
   setUp(() {
@@ -29,10 +32,12 @@ void main() {
     mockGetNowPlayingMovies = MockGetNowPlayingMovies();
     mockGetPopularMovies = MockGetPopularMovies();
     mockGetTopRatedMovies = MockGetTopRatedMovies();
+    mockGetUpcomingMovies = MockGetUpcomingMovies();
     provider = MovieListNotifier(
       getNowPlayingMovies: mockGetNowPlayingMovies,
       getPopularMovies: mockGetPopularMovies,
       getTopRatedMovies: mockGetTopRatedMovies,
+      getUpcomingMovies: mockGetUpcomingMovies,
     )..addListener(() {
         listenerCallCount += 1;
       });

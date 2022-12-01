@@ -267,9 +267,8 @@ class DetailContent extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundColor: kSoftWhite,
-            foregroundColor: Colors.white,
+            foregroundColor: kSoftBlack,
             child: IconButton(
-              color: kSoftBlack,
               icon: Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.pop(context);

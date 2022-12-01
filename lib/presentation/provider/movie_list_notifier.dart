@@ -3,6 +3,7 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/usecases/get_now_playing_movies.dart';
 import 'package:ditonton/domain/usecases/get_popular_movies.dart';
 import 'package:ditonton/domain/usecases/get_top_rated_movies.dart';
+import 'package:ditonton/domain/usecases/get_upcoming_movies.dart';
 import 'package:flutter/material.dart';
 
 class MovieListNotifier extends ChangeNotifier {
@@ -24,6 +25,12 @@ class MovieListNotifier extends ChangeNotifier {
   RequestState _topRatedMoviesState = RequestState.empty;
   RequestState get topRatedMoviesState => _topRatedMoviesState;
 
+  var _upcomingMovies = <Movie>[];
+  List<Movie> get upcomingMovies => _upcomingMovies;
+
+  RequestState _upcomingMoviesState = RequestState.empty;
+  RequestState get upcomingMoviesState => _upcomingMoviesState;
+
   String _message = '';
   String get message => _message;
 
@@ -31,11 +38,13 @@ class MovieListNotifier extends ChangeNotifier {
     required this.getNowPlayingMovies,
     required this.getPopularMovies,
     required this.getTopRatedMovies,
+    required this.getUpcomingMovies,
   });
 
   final GetNowPlayingMovies getNowPlayingMovies;
   final GetPopularMovies getPopularMovies;
   final GetTopRatedMovies getTopRatedMovies;
+  final GetUpcomingMovies getUpcomingMovies;
 
   Future<void> fetchNowPlayingMovies() async {
     _nowPlayingState = RequestState.loading;
@@ -89,6 +98,25 @@ class MovieListNotifier extends ChangeNotifier {
       (moviesData) {
         _topRatedMoviesState = RequestState.loaded;
         _topRatedMovies = moviesData;
+        notifyListeners();
+      },
+    );
+  }
+
+  Future<void> fetchUpcomingMovies() async {
+    _upcomingMoviesState = RequestState.loading;
+    notifyListeners();
+
+    final result = await getUpcomingMovies.execute();
+    result.fold(
+      (failure) {
+        _upcomingMoviesState = RequestState.error;
+        _message = failure.message;
+        notifyListeners();
+      },
+      (moviesData) {
+        _upcomingMoviesState = RequestState.loaded;
+        _upcomingMovies = moviesData;
         notifyListeners();
       },
     );

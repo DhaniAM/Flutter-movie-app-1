@@ -3,6 +3,7 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/pages/now_playing_movies_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
+import 'package:ditonton/presentation/pages/upcoming_movies_page.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/presentation/widgets/content_card.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,8 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         () => Provider.of<MovieListNotifier>(context, listen: false)
           ..fetchNowPlayingMovies()
           ..fetchPopularMovies()
-          ..fetchTopRatedMovies());
+          ..fetchTopRatedMovies()
+          ..fetchUpcomingMovies());
   }
 
   @override
@@ -80,6 +82,23 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 );
               } else if (state == RequestState.loaded) {
                 return ContentCard(data.topRatedMovies);
+              } else {
+                return Text('Failed');
+              }
+            }),
+            _buildSubHeading(
+              title: 'Upcoming',
+              onTap: () =>
+                  Navigator.pushNamed(context, UpcomingMoviesPage.ROUTE_NAME),
+            ),
+            Consumer<MovieListNotifier>(builder: (context, data, child) {
+              final state = data.upcomingMoviesState;
+              if (state == RequestState.loading) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state == RequestState.loaded) {
+                return ContentCard(data.upcomingMovies);
               } else {
                 return Text('Failed');
               }
