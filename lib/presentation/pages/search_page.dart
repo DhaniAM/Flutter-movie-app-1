@@ -30,6 +30,8 @@ class SearchPage extends StatelessWidget {
                   ..fetchTvSeriesSearch(query);
               },
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: kPrussianBlue)),
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
