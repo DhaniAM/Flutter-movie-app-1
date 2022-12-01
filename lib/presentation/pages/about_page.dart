@@ -12,24 +12,40 @@ class AboutPage extends StatelessWidget {
           Column(
             children: [
               Expanded(
+                flex: 5,
                 child: Container(
                   color: kPrussianBlue,
                   child: Center(
-                    child: Image.asset(
-                      'assets/circle-g.png',
-                      width: 128,
+                    child: FlutterLogo(
+                      size: 200,
                     ),
                   ),
                 ),
               ),
               Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(32.0),
-                  color: kBrightBlue,
+                flex: 1,
+                child: Center(
                   child: Text(
-                    'Ditonton merupakan sebuah aplikasi katalog film yang dikembangkan oleh Dicoding Indonesia sebagai contoh proyek aplikasi untuk kelas Menjadi Flutter Developer Expert.',
-                    style: TextStyle(color: Colors.black87, fontSize: 16),
-                    textAlign: TextAlign.justify,
+                    'Created using Flutter',
+                    style: kHeading6,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Center(
+                  child: Text(
+                    'Created by Ramadhani Adjar Mustaqim',
+                    style: kSubtitle,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Center(
+                  child: Text(
+                    'with help from Dicoding course',
+                    style: kSubtitle,
                   ),
                 ),
               ),
