@@ -3,7 +3,13 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
 import 'package:ditonton/presentation/pages/home_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/now_playing_movies_page.dart';
+import 'package:ditonton/presentation/pages/now_playing_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/popular_movies_page.dart';
+import 'package:ditonton/presentation/pages/popular_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/search_page.dart';
+import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
+import 'package:ditonton/presentation/pages/top_rated_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:ditonton/presentation/provider/bottom_navigation_bar_provider.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ditonton'),
+        title: Text('Home'),
         actions: [
           IconButton(
             onPressed: () {
@@ -44,31 +50,128 @@ class _HomePageState extends State<HomePage> {
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/circle-g.png'),
+                backgroundImage: AssetImage('assets/profile-pic.jpg'),
               ),
-              accountName: Text('Ditonton'),
-              accountEmail: Text('ditonton@dicoding.com'),
+              accountName: Text('Movie Pro'),
+              accountEmail: Text('dhani.a.mm@gmail.com'),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/bg-img.jpg'),
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.movie),
-              title: Text('Movies'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.save_alt),
-              title: Text('Watchlist'),
-              onTap: () {
-                Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
-              },
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
-              },
-              leading: Icon(Icons.info_outline),
-              title: Text('About'),
+            Expanded(
+              child: Container(
+                child: ListView(
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('Home'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.format_list_bulleted),
+                      title: Text('Watchlist'),
+                      onTap: () {
+                        Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                      },
+                    ),
+                    const Divider(
+                      color: kPrussianBlue,
+                      height: 5,
+                      thickness: 0.4,
+                      indent: 15,
+                      endIndent: 15,
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.play_circle),
+                      title: Text('Now Playing Movies'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, NowPlayingMoviesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.show_chart),
+                      title: Text('Top Rated Movies'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, TopRatedMoviesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.star_rounded),
+                      title: Text('Popular Movies'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, PopularMoviesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.ondemand_video),
+                      title: Text('Upcoming Movies'),
+                      onTap: () {
+                        Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                      },
+                    ),
+                    const Divider(
+                      color: kPrussianBlue,
+                      height: 5,
+                      thickness: 0.4,
+                      indent: 15,
+                      endIndent: 15,
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.play_circle),
+                      title: Text('Now Playing Tv Series'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, NowPlayingTvSeriesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.show_chart),
+                      title: Text('Top Rated Tv Series'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, TopRatedTvSeriesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.star_rounded),
+                      title: Text('Popular Tv Series'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, PopularTvSeriesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.ondemand_video),
+                      title: Text('Upcoming Tv Series'),
+                      onTap: () {
+                        Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                      },
+                    ),
+                    const Divider(
+                      color: kPrussianBlue,
+                      height: 5,
+                      thickness: 0.4,
+                      indent: 15,
+                      endIndent: 15,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                      },
+                      leading: Icon(Icons.info_outlined),
+                      title: Text('About'),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -106,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                 label: 'Tv Series',
               ),
             ],
-            selectedItemColor: kMikadoYellow,
+            selectedItemColor: kBrightBlue,
             currentIndex: data.index,
             onTap: (value) => data.changeIndex(value),
           );
