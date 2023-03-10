@@ -38,10 +38,10 @@ import 'presentation/provider/watchlist_tv_series_notifier.dart';
 
 void main() {
   di.init();
-  runApp(MyApp());
+  runApp(MoviePro());
 }
 
-class MyApp extends StatelessWidget {
+class MoviePro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
