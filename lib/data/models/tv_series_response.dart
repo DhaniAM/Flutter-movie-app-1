@@ -1,5 +1,5 @@
-import 'package:ditonton/data/models/tv_series_model.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movie_pro/data/models/tv_series_model.dart';
 
 class TvSeriesResponse extends Equatable {
   final List<TvSeriesModel> tvSeriesList;

@@ -1,5 +1,5 @@
-import 'package:ditonton/data/models/genre_model.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:movie_pro/data/models/genre_model.dart';
 
 void main() {
   final genreJson = {"id": 1, "name": "name"};

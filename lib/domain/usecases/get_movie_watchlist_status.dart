@@ -1,5 +1,5 @@
-import 'package:ditonton/data/repositories/movie_repository_impl.dart';
-import 'package:ditonton/domain/repositories/movie_repository.dart';
+import 'package:movie_pro/data/repositories/movie_repository_impl.dart';
+import 'package:movie_pro/domain/repositories/movie_repository.dart';
 
 class GetMovieWatchListStatus {
   final MovieRepository repository;

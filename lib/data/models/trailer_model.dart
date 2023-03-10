@@ -1,5 +1,5 @@
-import 'package:ditonton/domain/entities/trailer.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movie_pro/domain/entities/trailer.dart';
 
 class TrailerModel extends Equatable {
   final String keyName;

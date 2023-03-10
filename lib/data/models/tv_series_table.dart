@@ -1,6 +1,6 @@
-import 'package:ditonton/domain/entities/tv_series.dart';
-import 'package:ditonton/domain/entities/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movie_pro/domain/entities/tv_series.dart';
+import 'package:movie_pro/domain/entities/tv_series_detail.dart';
 
 /// Data to save on Database
 class TvSeriesTable extends Equatable {

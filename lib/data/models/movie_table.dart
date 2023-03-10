@@ -1,6 +1,6 @@
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movie_pro/domain/entities/movie.dart';
+import 'package:movie_pro/domain/entities/movie_detail.dart';
 
 /// Data to save on Database
 class MovieTable extends Equatable {

@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/usecases/get_now_playing_movies.dart';
-import 'package:ditonton/domain/usecases/get_popular_movies.dart';
-import 'package:ditonton/domain/usecases/get_top_rated_movies.dart';
-import 'package:ditonton/domain/usecases/get_upcoming_movies.dart';
-import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movie_pro/common/failure.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/domain/entities/movie.dart';
+import 'package:movie_pro/domain/usecases/get_now_playing_movies.dart';
+import 'package:movie_pro/domain/usecases/get_popular_movies.dart';
+import 'package:movie_pro/domain/usecases/get_top_rated_movies.dart';
+import 'package:movie_pro/domain/usecases/get_upcoming_movies.dart';
+import 'package:movie_pro/presentation/provider/movie_list_notifier.dart';
 
 import 'movie_list_notifier_test.mocks.dart';
 

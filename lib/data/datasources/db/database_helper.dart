@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:ditonton/data/models/movie_table.dart';
-import 'package:ditonton/data/models/tv_series_table.dart';
+import 'package:movie_pro/data/models/movie_table.dart';
+import 'package:movie_pro/data/models/tv_series_table.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
@@ -26,7 +26,7 @@ class DatabaseHelper {
 
   Future<Database> _initDb() async {
     final path = await getDatabasesPath();
-    final databasePath = '$path/ditonton.db';
+    final databasePath = '$path/movie_pro.db';
     var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
     return db;
   }

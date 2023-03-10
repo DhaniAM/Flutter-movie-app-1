@@ -1,16 +1,16 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/usecases/get_movie_detail.dart';
-import 'package:ditonton/domain/usecases/get_movie_recommendations.dart';
-import 'package:ditonton/domain/usecases/get_movie_watchlist_status.dart';
-import 'package:ditonton/domain/usecases/remove_movie_watchlist.dart';
-import 'package:ditonton/domain/usecases/save_movie_watchlist.dart';
-import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movie_pro/common/failure.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/domain/entities/movie.dart';
+import 'package:movie_pro/domain/usecases/get_movie_detail.dart';
+import 'package:movie_pro/domain/usecases/get_movie_recommendations.dart';
+import 'package:movie_pro/domain/usecases/get_movie_watchlist_status.dart';
+import 'package:movie_pro/domain/usecases/remove_movie_watchlist.dart';
+import 'package:movie_pro/domain/usecases/save_movie_watchlist.dart';
+import 'package:movie_pro/presentation/provider/movie_detail_notifier.dart';
 
 import '../../dummy_data/dummy_objects.dart';
 import 'movie_detail_notifier_test.mocks.dart';

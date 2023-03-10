@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/domain/entities/tv_series.dart';
-import 'package:ditonton/domain/repositories/tv_series_repository.dart';
+import 'package:movie_pro/common/failure.dart';
+import 'package:movie_pro/domain/entities/tv_series.dart';
+import 'package:movie_pro/domain/repositories/tv_series_repository.dart';
 
 class GetTvSeriesRecommendations {
   final TvSeriesRepository repository;

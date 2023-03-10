@@ -1,5 +1,5 @@
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/data/datasources/db/database_helper.dart';
+import 'package:movie_pro/common/exception.dart';
+import 'package:movie_pro/data/datasources/db/database_helper.dart';
 
 import '../models/tv_series_table.dart';
 

@@ -1,5 +1,5 @@
-import 'package:ditonton/data/models/trailer_model.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movie_pro/data/models/trailer_model.dart';
 
 class TrailerResponse extends Equatable {
   final List<TrailerModel> listTrailerModel;
