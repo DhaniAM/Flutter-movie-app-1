@@ -1,7 +1,7 @@
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/tv_series.dart';
-import 'package:ditonton/domain/usecases/get_now_playing_tv_series.dart';
 import 'package:flutter/foundation.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/domain/entities/tv_series.dart';
+import 'package:movie_pro/domain/usecases/get_now_playing_tv_series.dart';
 
 class NowPlayingTvSeriesNotifier extends ChangeNotifier {
   final GetNowPlayingTvSeries getNowPlayingTvSeries;

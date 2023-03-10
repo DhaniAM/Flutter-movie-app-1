@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/presentation/pages/movie_detail_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_pro/common/constants.dart';
+import 'package:movie_pro/domain/entities/movie.dart';
+import 'package:movie_pro/presentation/pages/movie_detail_page.dart';
+import 'package:movie_pro/presentation/pages/tv_series_detail_page.dart';
 
 class ContentCardList extends StatelessWidget {
   final content;

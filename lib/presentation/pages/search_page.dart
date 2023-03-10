@@ -1,11 +1,11 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/entities/tv_series.dart';
-import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_search_notifier.dart';
-import 'package:ditonton/presentation/widgets/search_result_list.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_pro/common/constants.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/domain/entities/movie.dart';
+import 'package:movie_pro/domain/entities/tv_series.dart';
+import 'package:movie_pro/presentation/provider/movie_search_notifier.dart';
+import 'package:movie_pro/presentation/provider/tv_series_search_notifier.dart';
+import 'package:movie_pro/presentation/widgets/search_result_list.dart';
 import 'package:provider/provider.dart';
 
 class SearchPage extends StatelessWidget {

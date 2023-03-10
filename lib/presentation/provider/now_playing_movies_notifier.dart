@@ -1,7 +1,7 @@
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/usecases/get_now_playing_movies.dart';
 import 'package:flutter/foundation.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/domain/entities/movie.dart';
+import 'package:movie_pro/domain/usecases/get_now_playing_movies.dart';
 
 class NowPlayingMoviesNotifier extends ChangeNotifier {
   final GetNowPlayingMovies getNowPlayingMovies;

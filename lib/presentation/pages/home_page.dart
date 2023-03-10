@@ -1,19 +1,19 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/pages/about_page.dart';
-import 'package:ditonton/presentation/pages/home_movie_page.dart';
-import 'package:ditonton/presentation/pages/home_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/now_playing_movies_page.dart';
-import 'package:ditonton/presentation/pages/now_playing_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/popular_movies_page.dart';
-import 'package:ditonton/presentation/pages/popular_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/search_page.dart';
-import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
-import 'package:ditonton/presentation/pages/top_rated_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/upcoming_movies_page.dart';
-import 'package:ditonton/presentation/pages/watchlist_page.dart';
-import 'package:ditonton/presentation/provider/bottom_navigation_bar_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_pro/common/constants.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/presentation/pages/about_page.dart';
+import 'package:movie_pro/presentation/pages/home_movie_page.dart';
+import 'package:movie_pro/presentation/pages/home_tv_series_page.dart';
+import 'package:movie_pro/presentation/pages/now_playing_movies_page.dart';
+import 'package:movie_pro/presentation/pages/now_playing_tv_series_page.dart';
+import 'package:movie_pro/presentation/pages/popular_movies_page.dart';
+import 'package:movie_pro/presentation/pages/popular_tv_series_page.dart';
+import 'package:movie_pro/presentation/pages/search_page.dart';
+import 'package:movie_pro/presentation/pages/top_rated_movies_page.dart';
+import 'package:movie_pro/presentation/pages/top_rated_tv_series_page.dart';
+import 'package:movie_pro/presentation/pages/upcoming_movies_page.dart';
+import 'package:movie_pro/presentation/pages/watchlist_page.dart';
+import 'package:movie_pro/presentation/provider/bottom_navigation_bar_provider.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {

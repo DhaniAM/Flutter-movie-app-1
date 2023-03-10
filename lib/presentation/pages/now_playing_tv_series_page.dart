@@ -1,7 +1,7 @@
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/provider/now_playing_tv_series_notifier.dart';
-import 'package:ditonton/presentation/widgets/content_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_pro/common/state_enum.dart';
+import 'package:movie_pro/presentation/provider/now_playing_tv_series_notifier.dart';
+import 'package:movie_pro/presentation/widgets/content_card_list.dart';
 import 'package:provider/provider.dart';
 
 class NowPlayingTvSeriesPage extends StatefulWidget {

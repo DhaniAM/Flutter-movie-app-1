@@ -1,5 +1,5 @@
-import 'package:ditonton/common/state_enum.dart';
 import 'package:flutter/foundation.dart';
+import 'package:movie_pro/common/state_enum.dart';
 
 class BottomNavigationBarNotifier extends ChangeNotifier {
   int _index = 0;
