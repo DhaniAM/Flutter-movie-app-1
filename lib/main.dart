@@ -42,6 +42,8 @@ void main() {
 }
 
 class MoviePro extends StatelessWidget {
+  const MoviePro({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
