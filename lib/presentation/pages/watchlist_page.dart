@@ -57,6 +57,27 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
                 child: CircularProgressIndicator(),
               );
             } else if (movieData.watchlistState == RequestState.loaded) {
+              if (result.isEmpty) {
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.movie_filter_outlined,
+                        size: 150,
+                        color: Colors.grey,
+                      ),
+                      Text(
+                        'You have no watchlist',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
               return ListView.builder(
                 itemBuilder: (_, index) {
                   final content = result[index];
