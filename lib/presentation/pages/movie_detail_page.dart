@@ -158,14 +158,22 @@ class DetailContent extends StatelessWidget {
                                     message ==
                                         MovieDetailNotifier
                                             .watchlistRemoveSuccessMessage) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text(message)));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                          content: Text(
+                                    message,
+                                    style: TextStyle(
+                                      color: kSoftBlack,
+                                    ),
+                                  )));
                                 } else {
                                   showDialog(
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
-                                          content: Text(message),
+                                          content: Text(
+                                            message,
+                                          ),
                                         );
                                       });
                                 }
