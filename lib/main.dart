@@ -144,6 +144,7 @@ class MoviePro extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => WatchlistPage());
             case AboutPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => AboutPage());
+            // error route
             default:
               return MaterialPageRoute(builder: (_) {
                 return Scaffold(
